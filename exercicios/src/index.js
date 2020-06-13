@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom'
 
 // import BomDia from './componentes/BomDia'
 // ReactDOM.render(
-//     <BomDia nome="David" idade="32" />
+//     <BomDia nome="David" idade={32} />
 // , document.getElementById('root'))
 
 // import Multi, { BoaNoite } from './componentes/Multiplos'

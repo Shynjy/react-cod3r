@@ -28,7 +28,26 @@ export default class Calculator extends Component {
     }
 
     setOperation(operation) {
-        console.log(operation);
+        if (this.state.current === 0) {
+            this.setState({operation, current: 1, clearDisplay: true })
+        } else {
+            const equals = operation === '='
+            const currentOperation = this.state.operation
+            // if(currentOperation == '÷' ) { currentOperation = '/'} 
+            // if(currentOperation == 'x' ) { currentOperation = '*'} 
+
+            const values = [...this.state.values]
+            values[0] = eval(`${values[0]} ${currentOperation} ${values[1]}`)
+            values[1] = 0
+
+            this.setState({
+                displayValue: values[0],
+                operation: equals ? null : operation,
+                current: equals ? 0 : 1,
+                clearDisplay: !equals,
+                values
+            })
+        }
     }
 
     addDigit(n) {
@@ -37,8 +56,7 @@ export default class Calculator extends Component {
         }
 
         const clearDisplay = this.state.displayValue === '0'
-            || this.state.clearDisplay
-            console.log(clearDisplay);            
+            || this.state.clearDisplay       
         const currentValue = clearDisplay ? '' : this.state.displayValue
         const displayValue = currentValue + n
         this.setState({ displayValue, clearDisplay: false })
@@ -57,11 +75,11 @@ export default class Calculator extends Component {
             <div className="calculator">
                 <Display value={this.state.displayValue} />
                 <Button label="AC" click={this.clearMemory} triple />
-                <Button label="÷" click={this.setOperation} operation/>
+                <Button label="/" click={this.setOperation} operation/>
                 <Button label="7" click={this.addDigit} />
                 <Button label="8" click={this.addDigit} />
                 <Button label="9" click={this.addDigit} />
-                <Button label="x" click={this.setOperation} operation/>
+                <Button label="*" click={this.setOperation} operation/>
                 <Button label="4" click={this.addDigit} />
                 <Button label="5" click={this.addDigit} />
                 <Button label="6" click={this.addDigit} />

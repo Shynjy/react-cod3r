@@ -1,11 +1,19 @@
 {
-    "users": [{
-        "id": 1,
-        "name": "Arthur Oliveira",
-        "email": "aoliveira@cod3r.com.br"
-    }, {
-        "id": 2,
-        "name": "Maria Sônia dos Santos Perira",
-        "email": "msdsp@empresa.com"
-    }]
+  "users": [
+    {
+      "id": 1,
+      "name": "Arthur dos Santos Pereira",
+      "email": "apereira@cod3r.com.br"
+    },
+    {
+      "id": 2,
+      "name": "Maria Sônia dos Santos Perira",
+      "email": "msdsp@empresa.com"
+    },
+    {
+      "name": "David dos Santos Pereira",
+      "email": "furia.designer@gmail.com",
+      "id": 3
+    }
+  ]
 }
